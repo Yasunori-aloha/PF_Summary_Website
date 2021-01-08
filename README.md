@@ -68,13 +68,13 @@
 - has_many :bookmarks
 
 ## posts table
-| Column                | Type    | Options                           |
-| --------------------- | ------- | -------------------------------g-- |
-| name                  | string     | null: false                    |
-| content               | text       | null: false                    |
-| url                   | string     | null: false                    |
-| user_id               | reference  | null: false foreign_key: true  |
-| tag_id                | reference  | null: false foreign_key: true  |
+| Column  | Type      | Options                       |
+| ------- | --------- | ----------------------------- |
+| name    | string    | null: false                   |
+| content | text      | null: false                   |
+| url     | string    | null: false                   |
+| user_id | reference | null: false foreign_key: true |
+| tag_id  | reference | null: false foreign_key: true |
 
 ### Post model association
 - belongs_to :user
