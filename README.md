@@ -84,6 +84,16 @@
 - has_many :posts_tags
 - has_many :tags, through: :posts_tags
 
+## comments table
+| Column  | Type       | Options                       |
+| ------- | ---------- | ----------------------------- |
+| user_id | reference  | null: false foreign_key: true |
+| post_id | reference  | null: false foreign_key: true |
+
+### Comment model association
+- belongs_to :user
+- belongs_to :post
+
 ## tags table
 | Column                | Type    | Options                          |
 | --------------------- | ------- | ----------------------- |
