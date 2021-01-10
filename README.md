@@ -95,9 +95,10 @@
 - belongs_to :post
 
 ## tags table
-| Column                | Type    | Options                          |
-| --------------------- | ------- | ----------------------- |
-| post_id               | reference  | null: false foreign_key: true |
+| Column   | Type      | Options                       |
+| -------- | --------- | ----------------------------- |
+| tag_name | string    | null: false                   |
+| post_id  | reference | null: false foreign_key: true |
 
 ### Tag model association
 - has_many :posts_tags
