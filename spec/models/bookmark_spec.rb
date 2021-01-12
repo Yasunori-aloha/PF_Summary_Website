@@ -1,5 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { FactoryBot.create(:user) }
+  let(:post) { FactoryBot.create(:post) }
+  let(:bookmark) { FactoryBot.create(:bookmark, user_id: user.id, post_id: post.id) }
+
+  describe 'いいね機能' do
+    context 'いいねができる場合' do
+      it 'ログインユーザーによる1投稿に1いいね' do
+        expect(bookmark).to be_valid
+      end
+    end
+
+    context 'いいねができない場合' do
+      it '1つの投稿に対して2回以上のいいねはできない' do
+        bookmark.save
+        another_bookmark = FactoryBot.build(:bookmark, user_id: user.id, post_id: post.id)
+        another_bookmark.valid?
+        expect( another_bookmark.errors.full_messages).to include 'Postはすでに存在します'
+      end
+
+      it 'ログインしていないユーザーはいいねできない' do
+        bookmark.user = nil
+        bookmark.valid?
+        expect(bookmark.errors.full_messages).to include 'Userを入力してください'
+      end
+    end
+  end
 end
