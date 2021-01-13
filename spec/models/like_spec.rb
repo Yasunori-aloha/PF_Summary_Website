@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:post) { FactoryBot.create(:post) }
-  let(:like) { FactoryBot.create(:like, user_id: user.id, post_id: post.id) }
+  let(:like) { FactoryBot.build(:like, user_id: user.id, post_id: post.id) }
 
   describe 'いいね機能' do
     context 'いいねができる場合' do
@@ -24,6 +24,12 @@ RSpec.describe Like, type: :model do
         like.user = nil
         like.valid?
         expect(like.errors.full_messages).to include 'Userを入力してください'
+      end
+
+      it '存在しない投稿に対してのいいね' do
+        like.post = nil
+        like.valid?
+        expect(like.errors.full_messages).to include 'Postを入力してください'
       end
     end
   end
