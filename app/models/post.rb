@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   #アソシエーション
-  has_many :comments
-  has_many :likes
-  has_many :bookmarks
-  has_many :posts_tags
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :posts_tags, dependent: :destroy
   has_many :tags, through: :posts_tags
   belongs_to :user
   
