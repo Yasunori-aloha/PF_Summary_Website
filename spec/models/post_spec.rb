@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:post) { FactoryBot.create(:post)}
+  let(:post) { FactoryBot.build(:post)}
 
   describe '投稿機能' do
     context '投稿ができるとき' do
@@ -39,6 +39,12 @@ RSpec.describe Post, type: :model do
         post.url = "fay-rutherford.com/digna_littel"
         post.valid?
         expect(post.errors.full_messages).to include 'Urlは不正な値です'
+      end
+
+      it '未ログインユーザーは投稿できない' do
+        post.user = nil
+        post.valid?
+        expect(post.errors.full_messages).to include "Userを入力してください"
       end
     end
   end
