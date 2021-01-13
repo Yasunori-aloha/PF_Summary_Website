@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ユーザー名
+        name: ユーザー名
+        email: メール
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      post:
+        name: タイトル
+        content: 内容
+        url: URL
+        user: ユーザー
+      comment:
+        name: 名前
+        comment: コメント
+      tag:
+        tag_name: タグ
+
+      like:
+        user: ユーザー
+        post: 投稿
+        user_id: ユーザー
+        post_id: 投稿
+      bookmark:
+        user: ユーザー
+        post: 投稿
+        post_id: 投稿
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
+      truncate: ...
