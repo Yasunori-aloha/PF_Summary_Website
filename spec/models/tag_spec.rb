@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
-  let(:tag) { FactoryBot.create(:tag) }
+  let(:tag) { FactoryBot.build(:tag) }
 
   describe 'タグ付機能' do
     context '機能がうまくいくとき' do
