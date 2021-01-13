@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-  let(:another_user) { FactoryBot.create(:user) }
+  let(:user) { FactoryBot.build(:user) }
+  let(:another_user) { FactoryBot.build(:user) }
 
   describe 'ユーザー新規登録' do
     context '新規登録ができる場合' do
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
       it 'passwordが7文字以下だと登録できない' do
         user.password = "111111a"
         user.valid?
-        expect(user.errors.full_messages).to include 'Password confirmationとPasswordの入力が一致しません'
+        expect(user.errors.full_messages).to include 'Passwordは不正な値です'
       end
 
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do

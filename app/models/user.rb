@@ -9,9 +9,7 @@ class User < ApplicationRecord
          has_many :likes
          has_many :bookmarks
          #バリデーション
-         with_options format: { with: /\A[a-zA-Z0-9]+\z/} do
-          validates :password
-          validates :password_confirmation
-         end
+          validates :password, format: { with: /\A[a-z\d]{8,}+\z/i}
          validates :nickname, presence: true
+         validates :password, confirmation: true
 end
