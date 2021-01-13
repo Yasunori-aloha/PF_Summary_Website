@@ -32,7 +32,8 @@
 - SNSログイン機能
 
 ## DB設計（ER図）
-https://i.gyazo.com/6218bf3293c5a2a8f0e543a08073d349.png
+[![Image from Gyazo](https://i.gyazo.com/6218bf3293c5a2a8f0e543a08073d349.png)](https://gyazo.com/6218bf3293c5a2a8f0e543a08073d349)
+
 # 共同開発を進める手順
 1. 環境構築を完了していることを各自確認
 1. 指定バージョンに揃える
