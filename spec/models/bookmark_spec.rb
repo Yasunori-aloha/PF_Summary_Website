@@ -15,19 +15,19 @@ RSpec.describe Bookmark, type: :model do
         bookmark.save
         another_bookmark = FactoryBot.build(:bookmark, user_id: bookmark.user_id, post_id: bookmark.post_id )
         another_bookmark.valid?
-        expect( another_bookmark.errors.full_messages).to include 'Postはすでに存在します'
+        expect( another_bookmark.errors.full_messages).to include '投稿はすでに存在します'
       end
 
       it 'ログインしていないユーザーはブックマークできない' do
         bookmark.user = nil
         bookmark.valid?
-        expect(bookmark.errors.full_messages).to include 'Userを入力してください'
+        expect(bookmark.errors.full_messages).to include 'ユーザーを入力してください'
       end
 
       it '存在しない投稿に対してのブックマーク' do
         bookmark.post = nil
         bookmark.valid?
-        expect(bookmark.errors.full_messages).to include 'Postを入力してください'
+        expect(bookmark.errors.full_messages).to include '投稿を入力してください'
       end
     end
   end

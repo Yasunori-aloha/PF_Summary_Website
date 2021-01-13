@@ -14,7 +14,7 @@ RSpec.describe Tag, type: :model do
       it 'tag_nameが空だとタグ付できない' do
         tag.tag_name = ""
         tag.valid?
-        expect(tag.errors.full_messages).to include 'Tag nameを入力してください'
+        expect(tag.errors.full_messages).to include 'タグを入力してください'
       end
     end
   end
