@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  let(:user) { FactoryBot.build(:user) }
-  let(:post) { FactoryBot.build(:post) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:post) { FactoryBot.create(:post) }
   let(:bookmark) { FactoryBot.build(:bookmark, user: user, post: post) }
 
   describe 'いいね機能' do
