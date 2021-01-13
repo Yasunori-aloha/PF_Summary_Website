@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-  let(:post) { FactoryBot.create(:post) }
-  let(:bookmark) { FactoryBot.build(:bookmark, user: user, post: post) }
+  let(:bookmark) { FactoryBot.build(:bookmark) }
 
   describe 'ブックマーク機能' do
     context 'ブックマークができる場合' do
@@ -15,7 +13,7 @@ RSpec.describe Bookmark, type: :model do
     context 'ブックマークができない場合' do
       it '1つの投稿に対して2回以上はできない' do
         bookmark.save
-        another_bookmark = FactoryBot.build(:bookmark, user: user, post: post)
+        another_bookmark = FactoryBot.build(:bookmark, user_id: bookmark.user_id, post_id: bookmark.post_id )
         another_bookmark.valid?
         expect( another_bookmark.errors.full_messages).to include 'Postはすでに存在します'
       end
