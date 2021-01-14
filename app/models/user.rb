@@ -9,7 +9,7 @@ class User < ApplicationRecord
          has_many :likes, dependent: :destroy
          has_many :bookmarks, dependent: :destroy
          #バリデーション
-          validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i}
+          validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}\z/i}, confirmation: true
          validates :nickname, presence: true
-         validates :password, confirmation: true
+         validates :password_confirmation, presence: true 
 end
