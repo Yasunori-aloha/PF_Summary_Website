@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :commnte do
+  factory :comment do
     association :user
     association :post
   end
