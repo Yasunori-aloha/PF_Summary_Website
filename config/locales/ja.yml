@@ -5,7 +5,7 @@ ja:
         nickname: ユーザー名
         email: メール
         password: パスワード
-        password_confirmation: パスワード（確認）
+        password_confirmation: 確認用パスワード
       post:
         name: タイトル
         content: 内容
@@ -20,8 +20,8 @@ ja:
       like:
         user: ユーザー
         post: 投稿
-        user_id: ユーザー
         post_id: 投稿
+        user_id: ユーザー
       bookmark:
         user: ユーザー
         post: 投稿
