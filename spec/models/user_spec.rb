@@ -52,13 +52,13 @@ RSpec.describe User, type: :model do
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         user.password_confirmation = ''
         user.valid?
-        expect(user.errors.full_messages).to include 'パスワード（確認）とパスワードの入力が一致しません'
+        expect(user.errors.full_messages).to include '確認用パスワードを入力してください'
       end
 
       it 'password_confirmationとpasswordの内容が一致しないと登録できない' do
         user.password_confirmation = '1234567b'
         user.valid?
-        expect(user.errors.full_messages).to include 'パスワード（確認）とパスワードの入力が一致しません'
+        expect(user.errors.full_messages).to include '確認用パスワードとパスワードの入力が一致しません'
       end
 
       it 'passwordは半角英字のみの場合登録できない' do
