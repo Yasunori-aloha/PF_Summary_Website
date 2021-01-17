@@ -27,6 +27,12 @@ RSpec.describe Comment, type: :model do
         comment.valid?
         expect(comment.errors.full_messages).to include 'コメントは140文字以内で入力してください'
       end
+
+      it '未ログインユーザーはコメントできない' do
+        comment.user = nil
+        comment.valid?
+        expect(comment.errors.full_messages).to include 'ユーザーを入力してください'
+      end
     end
   end
 end
