@@ -14,6 +14,7 @@ ja:
       comment:
         name: 名前
         comment: コメント
+        user: ユーザー
       tag:
         tag_name: タグ
 
