@@ -3,6 +3,6 @@ FactoryBot.define do
     association :user
     association :post
 
-    comment  { Faker::Lorem.characters(number: 140) }
+    comment { Faker::Lorem.characters(number: 140) }
   end
 end

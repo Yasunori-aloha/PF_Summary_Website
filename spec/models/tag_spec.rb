@@ -12,7 +12,7 @@ RSpec.describe Tag, type: :model do
 
     context '機能がうまくいかないとき' do
       it 'tag_nameが空だとタグ付できない' do
-        tag.tag_name = ""
+        tag.tag_name = ''
         tag.valid?
         expect(tag.errors.full_messages).to include 'タグを入力してください'
       end

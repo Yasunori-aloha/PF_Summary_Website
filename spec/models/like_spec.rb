@@ -15,7 +15,7 @@ RSpec.describe Like, type: :model do
         like.save
         another_like = FactoryBot.build(:like, user_id: like.user_id, post_id: like.post_id)
         another_like.valid?
-        expect( another_like.errors.full_messages).to include '投稿はすでに存在します'
+        expect(another_like.errors.full_messages).to include '投稿はすでに存在します'
       end
 
       it 'ログインしていないユーザーはいいねできない' do
