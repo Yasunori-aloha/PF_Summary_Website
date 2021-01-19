@@ -13,15 +13,15 @@ RSpec.describe User, type: :model do
 
     context 'ユーザー新規登録ができない場合' do
       it 'nicknameが空だと登録できない' do
-        user.nickname = ""
+        user.nickname = ''
         user.valid?
         expect(user.errors.full_messages).to include 'ユーザー名を入力してください'
       end
 
       it 'emailが空だと登録できない' do
-        user.email = ""
+        user.email = ''
         user.valid?
-        expect(user.errors.full_messages).to include "メールを入力してください"
+        expect(user.errors.full_messages).to include 'メールを入力してください'
       end
 
       it '重複したemailが存在する場合登録することができない' do
@@ -32,19 +32,19 @@ RSpec.describe User, type: :model do
       end
 
       it 'emailに@が入っていないと登録できない' do
-        user.email = "test.test"
+        user.email = 'test.test'
         user.valid?
         expect(user.errors.full_messages).to include 'メールは不正な値です'
       end
 
       it 'passwordが空だと登録できない' do
-        user.password = ""
+        user.password = ''
         user.valid?
         expect(user.errors.full_messages).to include 'パスワードを入力してください'
       end
 
       it 'passwordが7文字以下だと登録できない' do
-        user.password = "111111a"
+        user.password = '111111a'
         user.valid?
         expect(user.errors.full_messages).to include 'パスワードは不正な値です'
       end

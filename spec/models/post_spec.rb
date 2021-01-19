@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:post) { FactoryBot.build(:post)}
+  let(:post) { FactoryBot.build(:post) }
 
   describe '投稿機能' do
     context '投稿ができるとき' do
@@ -12,31 +12,31 @@ RSpec.describe Post, type: :model do
 
     context '投稿ができないとき' do
       it 'nameが空だと投稿できない' do
-        post.name = ""
+        post.name = ''
         post.valid?
         expect(post.errors.full_messages).to include 'タイトルを入力してください'
       end
 
       it 'contentが空だと投稿できない' do
-        post.content = ""
+        post.content = ''
         post.valid?
         expect(post.errors.full_messages).to include '内容を入力してください'
       end
 
       it 'contentが501文字以上だと投稿できない' do
-        post.content = "ア" * 501
+        post.content = 'ア' * 501
         post.valid?
         expect(post.errors.full_messages).to include '内容は500文字以内で入力してください'
       end
 
       it 'URLが空だと投稿できない' do
-        post.url = ""
+        post.url = ''
         post.valid?
         expect(post.errors.full_messages).to include 'URLを入力してください'
       end
 
       it 'URLの始めにHTTPが書かれていなければ投稿できない' do
-        post.url = "fay-rutherford.com/digna_littel"
+        post.url = 'fay-rutherford.com/digna_littel'
         post.valid?
         expect(post.errors.full_messages).to include 'URLは不正な値です'
       end
@@ -44,7 +44,7 @@ RSpec.describe Post, type: :model do
       it '未ログインユーザーは投稿できない' do
         post.user = nil
         post.valid?
-        expect(post.errors.full_messages).to include "ユーザーを入力してください"
+        expect(post.errors.full_messages).to include 'ユーザーを入力してください'
       end
     end
   end

@@ -13,9 +13,9 @@ RSpec.describe Bookmark, type: :model do
     context 'ブックマークができない場合' do
       it '1つの投稿に対して2回以上はできない' do
         bookmark.save
-        another_bookmark = FactoryBot.build(:bookmark, user_id: bookmark.user_id, post_id: bookmark.post_id )
+        another_bookmark = FactoryBot.build(:bookmark, user_id: bookmark.user_id, post_id: bookmark.post_id)
         another_bookmark.valid?
-        expect( another_bookmark.errors.full_messages).to include '投稿はすでに存在します'
+        expect(another_bookmark.errors.full_messages).to include '投稿はすでに存在します'
       end
 
       it 'ログインしていないユーザーはブックマークできない' do
